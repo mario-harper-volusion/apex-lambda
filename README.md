@@ -1,27 +1,24 @@
-## Lambda Management 
-[Apex.run](http://apex.run)
-#### Deploy Lambdas
+## Lambda Management (via [Apex.run](http://apex.run))
+### Deploy Lambdas
 ```sh
 apex deploy --dry-run # dry run to view what will happen
 apex deploy
 ```
 
-## Infrastructure as Code
-[Terraform](https://www.terraform.io/docs/index.html)
-#### Deploy Infrastructure
-First, setup aws credentials [Configure AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+## Infrastructure as Code (via [Terraform](https://www.terraform.io/docs/index.html))
+### Deploy Infrastructure
+First, configure aws credentials to use [Configure AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)
 
 Then,
 ```sh
 export TF_VAR_aws_account_id=<aws_account_id> # set aws account id to use
-cd infrastructure
-terraform get   # binds terrform modules
-terraform plan  
-terraform apply 
+apex infra get   # binds terrform modules
+apex infra plan  
+apex infra apply 
 ```
 
 ## Project Structure
-```
+```js
 PROJECT
 │   README.md
 │   .gitignore 
