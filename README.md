@@ -18,7 +18,7 @@ apex infra apply
 ```
 
 ## Project Structure
-```js
+```
 PROJECT
 │   README.md
 │   .gitignore 
