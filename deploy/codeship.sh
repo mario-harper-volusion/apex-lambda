@@ -41,8 +41,8 @@ git version
 # deploy infrastructure
 echo -e '\n Deploying infrastructure'
 apex infra --env $ENV get
-#apex infra --env $ENV plan
-#apex infra --env $ENV apply 
-git add add ./infrastructure/$ENV/*
-git commit -m "Build caused update to infrastructure state files"
+apex infra --env $ENV plan
+apex infra --env $ENV apply 
+git add ./infrastructure/$ENV/*
+git commit -m "[skip ci] Build caused update to infrastructure state files"
 git push -u origin master
