@@ -43,6 +43,10 @@ echo -e '\n Deploying infrastructure'
 apex infra --env $ENV get
 apex infra --env $ENV plan
 apex infra --env $ENV apply 
+
+# checkin any state changes back to github
+git config --global user.email "mario_harper@volusion.com"
+git config --global user.name "Mario Harper"
 git add ./infrastructure/$ENV/*
 git commit -m "[skip ci] Build caused update to infrastructure state files"
 git push -u origin master
