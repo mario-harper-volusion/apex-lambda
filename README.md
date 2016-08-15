@@ -1,3 +1,15 @@
+[ ![Codeship Status for mario-harper-volusion/apex-lambda](https://codeship.com/projects/5cd9b7d0-452e-0134-625c-460fa3f2896d/status?branch=master)](https://codeship.com/projects/168592)
+
+## AWS
+Both Apex and Terraform will require setting up and configuring the AWS CLI if you want to run them locally.
+[Configure AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)
+
+In the setup you should have setup your credentials. If not set them via Environment Variables.
+```sh
+export AWS_ACCESS_KEY_ID=<access_key_id>
+export AWS_SECRET_ACCESS_KEY=<secret_access_key>
+export AWS_REGION=<region>
+```
 ## Lambda Management (via [Apex.run](http://apex.run))
 ### Deploy Lambdas
 ```sh
@@ -11,7 +23,6 @@ First, configure aws credentials to use [Configure AWS CLI](http://docs.aws.amaz
 
 Then,
 ```sh
-export TF_VAR_aws_account_id=<aws_account_id> # set aws account id to use
 apex infra --env <env> get   # binds terrform modules
 apex infra --env <env> plan  
 apex infra --env <env> apply 
