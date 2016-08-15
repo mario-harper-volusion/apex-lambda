@@ -18,6 +18,7 @@ apex infra apply
 ```
 
 ## Project Structure 
+DELETE terraform.tfstate and terraform.tfstate.backup if using this project as a skeleton
 ```
 PROJECT
 │   README.md
