@@ -25,3 +25,4 @@ cd /home/rof/clone
 apex version
 
 # deploy lambdas
+apex deploy
