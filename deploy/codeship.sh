@@ -47,6 +47,7 @@ apex infra --env $ENV apply
 # checkin any state changes back to github
 git config --global user.email "mario_harper@volusion.com"
 git config --global user.name "Mario Harper"
+git checkout master
 git add ./infrastructure/$ENV/*
 git commit -m "[skip ci] Build caused update to infrastructure state files"
 git status
