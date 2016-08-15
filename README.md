@@ -35,16 +35,18 @@ PROJECT
 │   README.md
 │   .gitignore 
 |   project.json // globals for lambdas [apex.run]
+|   project.dev.json // dev env settings [apex.run]
 │
 ├───functions   // lamda functions [apex.run]
 |   └───hello
 |       |   index.js
 |
 └───infrastructure                // infrastructure as code [terraform]
-    │   main.tf                   // main terraform entry, uses modules defined under /modules
-    │   terraform.tfstate         // current terraform state
-    │   terraform.tfstate.backup  // backup of terraform state for rollbacks
-    │   variables.tf
+    ├───dev
+    │   |   main.tf                   // dev terraform entry, uses modules defined under ../modules
+    │   |   terraform.tfstate         // current dev env terraform state
+    │   |   terraform.tfstate.backup  // backup of dev env terraform state for rollbacks
+    │   |   variables.tf
     │
     └───modules
         ├───api_gateway
