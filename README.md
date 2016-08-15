@@ -12,9 +12,9 @@ First, configure aws credentials to use [Configure AWS CLI](http://docs.aws.amaz
 Then,
 ```sh
 export TF_VAR_aws_account_id=<aws_account_id> # set aws account id to use
-apex infra get   # binds terrform modules
-apex infra plan  
-apex infra apply 
+apex infra --env <env> get   # binds terrform modules
+apex infra --env <env> plan  
+apex infra --env <env> apply 
 ```
 
 ## Project Structure 

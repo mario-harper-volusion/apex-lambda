@@ -37,5 +37,5 @@ apex deploy
 # deploy infrastructure
 echo -e '\n Deploying infrastructure'
 apex infra --env $ENV get
-apex infra --env $ENV plan
-apex infra --env $ENV apply 
+#apex infra --env $ENV plan
+#apex infra --env $ENV apply 
