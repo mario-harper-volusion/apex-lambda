@@ -17,7 +17,7 @@ apex infra plan
 apex infra apply 
 ```
 
-## Project Structure
+## Project Structure 
 ```
 PROJECT
 │   README.md
