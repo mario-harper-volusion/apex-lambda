@@ -34,8 +34,15 @@ apex version
 echo -e '\n Deploying lambdas'
 apex deploy
 
+# ensure git is installed
+echo -e '\n Ensuring Git is installed'
+git version
+
 # deploy infrastructure
 echo -e '\n Deploying infrastructure'
 apex infra --env $ENV get
 #apex infra --env $ENV plan
 #apex infra --env $ENV apply 
+git add add ./infrastructure/$ENV/*
+git commit -m "Build caused update to infrastructure state files"
+git push -u origin master
