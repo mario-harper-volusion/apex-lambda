@@ -61,3 +61,5 @@ git status
 git push -u origin master
 echo -e '\n GIT STATUS: Post git push'
 git status
+
+exit 0
