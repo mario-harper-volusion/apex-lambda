@@ -44,11 +44,16 @@ apex infra --env $ENV get
 apex infra --env $ENV plan
 apex infra --env $ENV apply 
 
-# checkin any state changes back to github
+# check in any state changes back to github
+echo -e '\n Checking in any terraform state changes to github'
 git config --global user.email "mario_harper@volusion.com"
 git config --global user.name "Mario Harper"
 git checkout master
 git add ./infrastructure/$ENV/*
+# "[skip ci]" on commit comment prevents CI/CD loop
 git commit -m "[skip ci] Build caused update to infrastructure state files"
+echo -e '\n GIT STATUS: Pre git push'
 git status
 git push -u origin master
+echo -e '\n GIT STATUS: Post git push'
+git status
