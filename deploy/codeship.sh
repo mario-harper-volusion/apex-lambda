@@ -43,10 +43,10 @@ apex infra --env $ENV plan
 apex infra --env $ENV apply 
 
 # echo out tfstates just in case git fails to check them back in.
-echo -e '\n CONENTS OF: /infrastructure/$ENV/terraform.tfstate'
-echo ./infrastructure/$ENV/terraform.tfstate
-echo -e '\n CONENTS OF: /infrastructure/$ENV/terraform.tfstate.backup'
-echo ./infrastructure/$ENV/terraform.tfstate.backup
+echo -e '\n CONENTS OF: /infrastructure/'$ENV'/terraform.tfstate'
+cat ./infrastructure/$ENV/terraform.tfstate
+echo -e '\n CONENTS OF: /infrastructure/'$ENV'/terraform.tfstate.backup'
+cat ./infrastructure/$ENV/terraform.tfstate.backup
 
 # check in any state changes back to github
 echo -e '\n Checking in any terraform state changes to github'
