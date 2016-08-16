@@ -5,7 +5,7 @@ echo -e '\n Entering codeship.sh'
 #  - AWS_ACCESS_KEY_ID AWS account access key
 #  - AWS_SECRET_ACCESS_KEY AWS account secret key
 #  - AWS_REGION AWS region
-#  - ENV environment deploying to (DEV, INT, PROD)
+#  - ENV environment deploying to (dev, int, prod)
 set -e
 
 # Install aws cli
@@ -14,7 +14,6 @@ pip install awscli
 
 # Install terraform
 echo -e '\n Installing Terraform'
-
 cd /home/rof/bin
 wget https://releases.hashicorp.com/terraform/0.7.0/terraform_0.7.0_linux_amd64.zip
 unzip terraform_0.7.0_linux_amd64.zip
@@ -23,7 +22,6 @@ terraform -v
 
 # Install apex
 echo -e '\n Installing Apex'
-
 cd /home/rof/bin
 wget https://github.com/apex/apex/releases/download/v0.10.2/apex_linux_amd64 -O apex
 chmod 755 apex
@@ -43,6 +41,12 @@ echo -e '\n Deploying infrastructure'
 apex infra --env $ENV get
 apex infra --env $ENV plan
 apex infra --env $ENV apply 
+
+# echo out tfstates just in case git fails to check them back in.
+echo -e '\n CONENTS OF: /infrastructure/$ENV/terraform.tfstate'
+echo ./infrastructure/$ENV/terraform.tfstate
+echo -e '\n CONENTS OF: /infrastructure/$ENV/terraform.tfstate.backup'
+echo ./infrastructure/$ENV/terraform.tfstate.backup
 
 # check in any state changes back to github
 echo -e '\n Checking in any terraform state changes to github'
