@@ -19,9 +19,6 @@ apex deploy
 
 ## Infrastructure as Code (via [Terraform](https://www.terraform.io/docs/index.html))
 ### Deploy Infrastructure
-First, configure aws credentials to use [Configure AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)
-
-Then,
 ```sh
 apex infra --env <env> get   # binds terrform modules
 apex infra --env <env> plan  
