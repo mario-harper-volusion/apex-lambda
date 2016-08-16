@@ -2,7 +2,7 @@
 
 ## AWS
 Both Apex and Terraform will require setting up and configuring the AWS CLI if you want to run them locally.
-[Configure AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-quick-configuration)
+[AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 
 In the setup you should have setup your credentials. If not set them via Environment Variables.
 ```sh
