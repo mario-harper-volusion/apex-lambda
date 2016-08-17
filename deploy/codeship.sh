@@ -55,12 +55,12 @@ git config --global user.name "Mario Harper"
 git checkout master
 git add ./infrastructure/$ENV/*
 # "[skip ci]" on commit comment prevents CI/CD loop
-if [ git commit -m "[skip ci] Build caused update to infrastructure state files" ]; then
+if git commit -m "[skip ci] Build caused update to infrastructure state files"; then
+  echo "GIT STATUS: No changes to commit"
+else
   echo -e '\n GIT STATUS: Pre git push'
   git status
   git push -u origin master
   echo -e '\n GIT STATUS: Post git push'
   git status
-else
-  echo "GIT STATUS: No changes to commit"
 fi
