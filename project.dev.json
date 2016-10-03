@@ -1,7 +1,11 @@
 {
   "name": "apex-lambda",
   "description": "Testing using apex to manage lambda",
+  "role": "arn:aws:iam::124223853155:role/tax-service-lambda_function",
   "memory": 128,
-  "timeout": 5,
-  "role": "arn:aws:iam::124223853155:role/apex-lambda_lambda_function"
+  "timeout": 10,
+  "hooks": {
+    "build": "cp ../../package.json ./package.json && npm install --production",
+    "clean": "rm -rf node_modules && rm ./package.json"    
+  }
 }

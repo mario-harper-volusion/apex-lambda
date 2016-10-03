@@ -1,59 +1,46 @@
 [ ![Codeship Status for mario-harper-volusion/apex-lambda](https://codeship.com/projects/5cd9b7d0-452e-0134-625c-460fa3f2896d/status?branch=master)](https://codeship.com/projects/168592)
 
-## AWS
-Both Apex and Terraform will require setting up and configuring the AWS CLI if you want to run them locally.
-[AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+## Deploy / Destroy 
 
-In the setup you should have setup your credentials. If not set them via Environment Variables.
+### Help
 ```sh
-export AWS_ACCESS_KEY_ID=<access_key_id>
-export AWS_SECRET_ACCESS_KEY=<secret_access_key>
-export AWS_REGION=<region>
-```
-## Lambda Management (via [Apex.run](http://apex.run))
-### Deploy Lambdas
-```sh
-apex deploy --dry-run # dry run to view what will happen
-apex deploy
+bash ./deploy/run.sh --help
 ```
 
-## Infrastructure as Code (via [Terraform](https://www.terraform.io/docs/index.html))
-### Deploy Infrastructure
+### Deploy
+To deploy all of the infrastructure and lambdas for a given environment.
+
 ```sh
-apex infra --env <env> get   # binds terrform modules
-apex infra --env <env> plan  
-apex infra --env <env> apply 
+bash ./deploy/run.sh --env {environment}
 ```
 
-## Project Structure 
-DELETE terraform.tfstate and terraform.tfstate.backup if using this project as a skeleton
+### Destroy
+To destroy all of the infrastructure and lambdas for a given environment.
+
+```sh
+bash ./deploy/run.sh --env {environment} --destroy
 ```
-PROJECT
-│   README.md
-│   .gitignore 
-|   project.json // globals for lambdas [apex.run]
-|   project.dev.json // dev env settings [apex.run]
+
+## Project Structure
+```
+PROJECT-NAME
+|   project.{env}.json // lambda settings by environment [apex.run]
 │
-├───functions   // lamda functions [apex.run]
-|   └───hello
+├───deploy                     // handles deploying of project
+│
+├───functions                   // lamda functions [apex.run]
+|   └───hello            
 |       |   index.js
 |
-└───infrastructure                // infrastructure as code [terraform]
-    ├───dev
-    │   |   main.tf                   // dev terraform entry, uses modules defined under ../modules
-    │   |   terraform.tfstate         // current dev env terraform state
-    │   |   terraform.tfstate.backup  // backup of dev env terraform state for rollbacks
-    │   |   variables.tf
+└───infrastructure             // infrastructure as code [terraform]
+    ├───{env}
+    │   |   main.tf            // configures terraform modules defined under ../modules for this specific environment.
+    │   |   outputs.tf         // defines terraform outputs
+    │   |   variables.tf       // defines input variables
     │
     └───modules
-        ├───api_gateway
-        |   |   api_gateway_body_mapping.template
-        |   |   main.tf
-        |   |   variables.tf
+        ├───api_gateway        // configures the tax API
         |
-        └───iam
-            |   api-gateway-iam.tf
-            |   lambda-iam.tf
-            |   outputs.tf
+        └───iam                // configures IAM for API and Lambdas
 ```
 

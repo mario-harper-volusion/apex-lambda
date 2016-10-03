@@ -1,5 +1,0 @@
-{
-  "description": "Example function using APEX to deploy",
-  "runtime": "nodejs4.3",
-  "handler": "index.handle"
-}

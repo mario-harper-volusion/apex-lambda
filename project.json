@@ -1,8 +1,0 @@
-{
-  "name": "apex-lambda",
-  "description": "Testing using apex to manage lambda",
-  "memory": 128,
-  "timeout": 5,
-  "role": "arn:aws:iam::124223853155:role/apex-lambda_lambda_function",
-  "defaultEnvironment": "dev"
-}
