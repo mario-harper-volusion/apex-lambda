@@ -1,5 +1,5 @@
 resource "aws_iam_role" "gateway_invoke_lambda" {
-  name = "gateway_invoke_lambda"
+  name = "apex-lambda-gateway_invoke_lambda"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -18,7 +18,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "invoke_lambda" {
-  name = "invoke_lambda"
+  name = "apex-lambda-invoke_lambda"
   role = "${aws_iam_role.gateway_invoke_lambda.id}"
   policy = <<EOF
 {

@@ -1,5 +1,5 @@
 resource "aws_iam_role" "lambda_function" {
-  name = "lambda_function"
+  name = "apex-lambda-lambda_function"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -17,7 +17,7 @@ EOF
 }
 
 resource "aws_iam_role_policy" "cloudwatchlogs_full_access" {
-  name = "cloudwatchlogs_full_access"
+  name = "apex-lambda-cloudwatchlogs_full_access"
   role = "${aws_iam_role.lambda_function.id}"
   policy = <<EOF
 {
