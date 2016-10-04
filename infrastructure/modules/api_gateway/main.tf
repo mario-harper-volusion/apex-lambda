@@ -40,7 +40,7 @@ resource "aws_api_gateway_integration" "hello_get_endpoint_integration" {
   credentials = "${var.gateway_invoke_lambda_role_arn}"
   # Must be POST for invoking Lambda function
   integration_http_method = "POST"
-  uri = "arn:aws:apigateway:${var.aws_region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${var.aws_region}:${var.aws_account_id}:function:volusion-tax-rate-service_getTaxRates/invocations"
+  uri = "arn:aws:apigateway:${var.aws_region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${var.aws_region}:${var.aws_account_id}:function:apex-lambda_hello/invocations"
   request_templates = {
     "application/json" = "${file("${path.module}/api_gateway_body_mapping.template")}"
   }

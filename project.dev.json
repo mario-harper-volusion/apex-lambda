@@ -1,7 +1,7 @@
 {
   "name": "apex-lambda",
   "description": "Testing using apex to manage lambda",
-  "role": "arn:aws:iam::124223853155:role/tax-service-lambda_function",
+  "role": "arn:aws:iam::124223853155:role/apex-lambda-lambda_function",
   "memory": 128,
   "timeout": 10,
   "hooks": {
